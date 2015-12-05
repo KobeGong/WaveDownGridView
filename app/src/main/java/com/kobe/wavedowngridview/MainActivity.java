@@ -117,14 +117,14 @@ public class MainActivity extends AppCompatActivity {
         boolean isOddIndex = index % 2 == 0;
         int direction = isOddIndex ? -1 : 1;
         XyProperty xyProperty = new XyProperty("XY");
-        PropertyValuesHolder holder1 = PropertyValuesHolder.ofObject(xyProperty, null, new QuadPathMotion(new PointF(direction * 200, 0)).getPath(view.getLeft(), view.getTop(), view.getLeft(), view.getTop() + 400));
+        PropertyValuesHolder holder1 = PropertyValuesHolder.ofObject(xyProperty, null, new QuadPathMotion(new PointF(direction * 80, 0)).getPath(view.getLeft(), view.getTop(), view.getLeft(), view.getTop() + 400));
 
         PropertyValuesHolder holder2 = PropertyValuesHolder.ofFloat("alpha", 1f, 0f);
 
-        PropertyValuesHolder holder3 = PropertyValuesHolder.ofFloat("rotation", 0, direction * -30, 0, direction * 30, 0);
+        PropertyValuesHolder holder3 = PropertyValuesHolder.ofFloat("rotation", 0, direction * -15, 0, direction * 15, 0);
 
         ObjectAnimator animator = ObjectAnimator.ofPropertyValuesHolder(view, holder1, holder2, holder3);
-        animator.setStartDelay(100 + index * 100);
+        animator.setStartDelay(index * 100);
         animator.setDuration(4 * DEFAULT_ANIMATION_DURATION);
         return animator;
     }
